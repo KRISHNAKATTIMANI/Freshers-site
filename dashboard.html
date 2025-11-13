@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CS MANICZ</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">CS MANICZ</div>
+        <div class="nav-right">
+            <div class="user-info" onclick="window.location.href='user-profile.html'" style="cursor: pointer;" title="View Profile">
+                <img id="userAvatar" src="images/default-user.svg" alt="User" class="nav-avatar">
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <span id="userName">User</span>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+            <h1>Welcome Back, <span id="welcomeName">User</span>! 🎉</h1>
+            <div class="level-badge">
+                <i class="fas fa-trophy"></i>
+                <span>Level <span id="userLevel">0</span></span>
+            </div>
+            <p>Check out the latest events and jump into exciting games!</p>
+        </div>
+
+        <!-- Events Section -->
+        <section class="events-section">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-alt"></i> Upcoming Events</h2>
+            </div>
+            <div class="events-grid" id="eventsContainer">
+                <div class="loading-spinner"></div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section class="games-section">
+            <div class="section-header">
+                <h2 class="games-header"><i class="fas fa-gamepad"></i> Play the Games!</h2>
+            </div>
+            <div class="games-grid">
+                <a href="riddle-rush.html" class="game-card" data-game="riddle-rush" data-level="1">
+                    <div class="game-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Riddle Rush</h3>
+                    <p>Test your wit with mind-bending riddles</p>
+                    <span class="play-btn">Play Now →</span>
+                </a>
+
+                <a href="who-said-it.html" class="game-card" data-game="who-said-it" data-level="2">
+                    <div class="game-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <h3>Who Said It?</h3>
+                    <p>Match famous quotes to their speakers</p>
+                    <span class="play-btn">Play Now →</span>
+                    <div class="game-lock">
+                        <i class="fas fa-lock"></i>
+                        <span>Locked</span>
+                    </div>
+                </a>
+
+                <a href="truth-dare.html" class="game-card" data-game="truth-dare" data-level="3">
+                    <div class="game-icon">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h3>Truth or Dare</h3>
+                    <p>Classic party game with a twist</p>
+                    <span class="play-btn">Play Now →</span>
+                    <div class="game-lock">
+                        <i class="fas fa-lock"></i>
+                        <span>Locked</span>
+                    </div>
+                </a>
+
+                <a href="word-scramble.html" class="game-card game-card-second-row" data-game="word-scramble" data-level="4">
+                    <div class="game-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>Word Scramble</h3>
+                    <p>Unscramble words before time runs out</p>
+                    <span class="play-btn">Play Now →</span>
+                    <div class="game-lock">
+                        <i class="fas fa-lock"></i>
+                        <span>Locked</span>
+                    </div>
+                </a>
+
+                <a href="treasure-hunt.html" class="game-card game-card-second-row" data-game="treasure-hunt" data-level="5">
+                    <div class="game-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Campus Treasure Hunt</h3>
+                    <p>Explore campus and find hidden treasures</p>
+                    <span class="play-btn">Play Now →</span>
+                    <div class="game-lock">
+                        <i class="fas fa-lock"></i>
+                        <span>Locked</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-gamepad"></i> CS MANICZ</h3>
+                <p>Experience the ultimate freshers gaming platform! Challenge yourself with exciting games, track your progress, and compete with others.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-link"></i> Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="user-profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-trophy"></i> Leaderboard</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-address-card"></i> Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> csmanicz@college.edu</li>
+                    <li><i class="fas fa-phone"></i> +91 1234567890</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Computer Science Department</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 <a href="#">CS MANICZ</a>. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> by Computer Science Students</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

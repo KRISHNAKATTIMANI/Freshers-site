@@ -1,0 +1,414 @@
+/* Universal Game Entrance Animations */
+
+/* Base entrance animation for all games */
+.game-entrance-animation {
+    animation: fadeInScale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Title slide-in animation */
+.title-slide-in {
+    animation: slideInFromLeft 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Title bounce-in animation */
+.title-bounce-in {
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-10deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* ======================
+   RIDDLE RUSH - Brain Pulse
+   ====================== */
+.brain-pulse-animation {
+    position: relative;
+    animation: brainPulse 2s ease-in-out infinite, iconFloat 3s ease-in-out infinite;
+}
+
+.brain-pulse-animation i {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 20px rgba(103, 58, 183, 0.6));
+}
+
+.glow-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(103, 58, 183, 0.3) 0%, transparent 70%);
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes brainPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+/* ======================
+   WHO SAID IT - Microphone Bounce
+   ====================== */
+.mic-bounce-animation {
+    position: relative;
+    animation: micBounce 1s ease-in-out infinite, rotate3D 4s ease-in-out infinite;
+}
+
+.mic-bounce-animation i {
+    filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.6));
+}
+
+.sound-waves {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
+}
+
+.sound-waves::before,
+.sound-waves::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(233, 30, 99, 0.4);
+    border-radius: 50%;
+    animation: soundWave 2s ease-out infinite;
+}
+
+.sound-waves::after {
+    animation-delay: 1s;
+}
+
+@keyframes micBounce {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.05);
+    }
+}
+
+@keyframes rotate3D {
+    0%, 100% {
+        transform: perspective(400px) rotateY(0deg);
+    }
+    50% {
+        transform: perspective(400px) rotateY(20deg);
+    }
+}
+
+@keyframes soundWave {
+    0% {
+        width: 80%;
+        height: 80%;
+        opacity: 1;
+    }
+    100% {
+        width: 150%;
+        height: 150%;
+        opacity: 0;
+    }
+}
+
+/* ======================
+   TRUTH OR DARE - Button Slide Up
+   ====================== */
+.buttons-slide-up button:nth-child(1) {
+    animation: slideUpBounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s both;
+}
+
+.buttons-slide-up button:nth-child(2) {
+    animation: slideUpBounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s both;
+}
+
+@keyframes slideUpBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) rotateX(90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+}
+
+.truth-btn {
+    animation: truthGlow 2s ease-in-out infinite !important;
+}
+
+.dare-btn {
+    animation: dareGlow 2s ease-in-out infinite !important;
+}
+
+@keyframes truthGlow {
+    0%, 100% {
+        box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(76, 175, 80, 0.6);
+    }
+}
+
+@keyframes dareGlow {
+    0%, 100% {
+        box-shadow: 0 5px 20px rgba(244, 67, 54, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(244, 67, 54, 0.6);
+    }
+}
+
+/* ======================
+   WORD SCRAMBLE - Letter Shuffle
+   ====================== */
+.letter-shuffle-animation {
+    position: relative;
+    animation: letterRotate 3s ease-in-out infinite;
+}
+
+.letter-shuffle-animation i {
+    animation: letterZoom 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 152, 0, 0.6));
+}
+
+.floating-letters {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+}
+
+.floating-letters span {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(255, 152, 0, 0.6);
+    animation: floatAround 4s ease-in-out infinite;
+}
+
+.floating-letters span:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.floating-letters span:nth-child(2) {
+    top: 70%;
+    left: 70%;
+    animation-delay: 0.5s;
+}
+
+.floating-letters span:nth-child(3) {
+    top: 40%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+@keyframes letterRotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes letterZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes floatAround {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(20px, -20px) rotate(90deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(0, -40px) rotate(180deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(-20px, -20px) rotate(270deg);
+        opacity: 0.8;
+    }
+}
+
+/* ======================
+   TREASURE HUNT - Map Reveal
+   ====================== */
+.map-reveal-animation {
+    position: relative;
+    animation: mapUnfold 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.map-reveal-animation i {
+    animation: treasureShine 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 193, 7, 0.6));
+}
+
+.treasure-sparkles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
+}
+
+.treasure-sparkles::before,
+.treasure-sparkles::after {
+    content: '✨';
+    position: absolute;
+    font-size: 20px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.treasure-sparkles::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.treasure-sparkles::after {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+@keyframes mapUnfold {
+    0% {
+        opacity: 0;
+        transform: perspective(400px) rotateX(-90deg);
+    }
+    50% {
+        transform: perspective(400px) rotateX(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+@keyframes treasureShine {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 20px rgba(255, 193, 7, 0.6));
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+        filter: drop-shadow(0 0 30px rgba(255, 193, 7, 1));
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+    }
+}
+
+/* Particle Enhancement */
+.particles-background .particle {
+    animation: particleFloat 15s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(50px, -50px) scale(1.2);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(100px, 0) scale(0.8);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translate(50px, 50px) scale(1.1);
+        opacity: 0.7;
+    }
+}

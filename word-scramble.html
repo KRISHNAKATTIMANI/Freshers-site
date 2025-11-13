@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Scramble</title>
+    <link rel="stylesheet" href="css/word-scramble.css">
+    <link rel="stylesheet" href="css/game-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <nav class="navbar">
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <div class="nav-brand">Word Scramble 🔤</div>
+        <div class="score-display">
+            Score: <span id="score">0</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="startScreen" class="screen active">
+            <div class="start-card game-entrance-animation">
+                <div class="game-logo letter-shuffle-animation">
+                    <i class="fas fa-font"></i>
+                    <div class="floating-letters">
+                        <span>A</span><span>B</span><span>C</span>
+                    </div>
+                </div>
+                <h1 class="title-slide-in">Word Scramble</h1>
+                <p class="game-description">Unscramble the letters to form the correct word. Beat the clock!</p>
+                <button class="start-btn" id="startGame">
+                    <i class="fas fa-play"></i> Start Game
+                </button>
+            </div>
+        </div>
+
+        <div id="gameScreen" class="screen">
+            <div class="game-info">
+                <div class="timer">Time: <span id="timer">60</span>s</div>
+                <div class="progress">Word <span id="currentWord">1</span>/10</div>
+            </div>
+
+            <div class="word-card">
+                <h3>Unscramble this word:</h3>
+                <div class="scrambled-word" id="scrambledWord"></div>
+                <div class="hint">💡 Hint: <span id="hint"></span></div>
+            </div>
+
+            <div class="input-section">
+                <input type="text" id="answerInput" placeholder="Type your answer..." autocomplete="off">
+                <button class="submit-btn" id="submitBtn">
+                    <i class="fas fa-check"></i> Submit
+                </button>
+            </div>
+
+            <button class="skip-btn" id="skipBtn">
+                <i class="fas fa-forward"></i> Skip
+            </button>
+        </div>
+
+        <div id="resultScreen" class="screen">
+            <div class="result-card">
+                <div class="result-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h1 id="resultTitle">Well Done!</h1>
+                <div class="result-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <span class="stat-value" id="finalScore">0</span>
+                        <span class="stat-label">Score</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-check"></i>
+                        <span class="stat-value" id="correctWords">0</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <button class="back-home-btn" onclick="window.location.href='dashboard.html'" style="width: 100%;">
+                        <i class="fas fa-home"></i> Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/word-scramble.js"></script>
+</body>
+</html>

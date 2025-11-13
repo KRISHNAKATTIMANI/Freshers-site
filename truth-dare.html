@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truth or Dare</title>
+    <link rel="stylesheet" href="css/truth-dare.css">
+    <link rel="stylesheet" href="css/game-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <nav class="navbar">
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <div class="nav-brand">Truth or Dare 🎲</div>
+    </nav>
+
+    <div class="container">
+        <div class="game-card game-entrance-animation">
+            <h1 class="game-title title-bounce-in">Truth or Dare</h1>
+            <div class="choice-buttons buttons-slide-up">
+                <button class="choice-btn truth-btn" id="truthBtn">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>TRUTH</span>
+                </button>
+                <button class="choice-btn dare-btn" id="dareBtn">
+                    <i class="fas fa-fire"></i>
+                    <span>DARE</span>
+                </button>
+            </div>
+            
+            <div class="challenge-card" id="challengeCard" style="display: none;">
+                <div class="challenge-type" id="challengeType"></div>
+                <p class="challenge-text" id="challengeText"></p>
+                <button class="next-btn" id="nextBtn">
+                    <i class="fas fa-forward"></i> Next Challenge
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/truth-dare.js"></script>
+</body>
+</html>

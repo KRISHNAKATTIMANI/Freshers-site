@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Said It? - Quote Game</title>
+    <link rel="stylesheet" href="css/who-said-it.css">
+    <link rel="stylesheet" href="css/game-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <nav class="navbar">
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <div class="nav-brand">Who Said It? 🎤</div>
+        <div class="score-display">
+            Score: <span id="score">0</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="start-card game-entrance-animation">
+                <div class="game-logo mic-bounce-animation">
+                    <i class="fas fa-microphone"></i>
+                    <div class="sound-waves"></div>
+                </div>
+                <h1 class="title-slide-in">Who Said It?</h1>
+                <p class="game-description">
+                    Match famous quotes with the people who said them! Test your knowledge of history, culture, and wisdom.
+                </p>
+                <button class="start-btn" id="startGame">
+                    <i class="fas fa-play"></i> Start Game
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="progress-section">
+                <h3>Question <span id="currentQuestion">1</span> / <span id="totalQuestions">10</span></h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="quote-card" id="quoteCard">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <h2 class="quote-text" id="quoteText"></h2>
+                <div class="quote-icon-right">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+            </div>
+
+            <div class="authors-grid" id="authorsGrid"></div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen">
+            <div class="result-card">
+                <div class="result-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h1 id="resultTitle">Great Job!</h1>
+                <div class="result-stats">
+                    <div class="stat-box">
+                        <i class="fas fa-star"></i>
+                        <div class="stat-value" id="finalScore">0</div>
+                        <div class="stat-label">Final Score</div>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="stat-value" id="correctCount">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-times-circle"></i>
+                        <div class="stat-value" id="wrongCount">0</div>
+                        <div class="stat-label">Wrong</div>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <button class="back-home-btn" onclick="window.location.href='dashboard.html'" style="width: 100%;">
+                        <i class="fas fa-home"></i> Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/who-said-it.js"></script>
+</body>
+</html>

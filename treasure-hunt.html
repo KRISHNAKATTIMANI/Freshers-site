@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Treasure Hunt</title>
+    <link rel="stylesheet" href="css/treasure-hunt.css">
+    <link rel="stylesheet" href="css/game-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <nav class="navbar">
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <div class="nav-brand">Campus Treasure Hunt 🗺️</div>
+    </nav>
+
+    <div class="container">
+        <div class="game-card game-entrance-animation">
+            <div class="game-header">
+                <div class="game-logo map-reveal-animation">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <div class="treasure-sparkles"></div>
+                </div>
+                <h1 class="title-slide-in">Campus Treasure Hunt</h1>
+                <p class="game-description">
+                    Follow the clues to find hidden treasures around campus! Each clue will lead you to the next location.
+                </p>
+            </div>
+
+            <div class="clue-card" id="clueCard">
+                <div class="clue-number">Clue <span id="clueNumber">1</span></div>
+                <div class="clue-text" id="clueText"></div>
+                <div class="location-input">
+                    <input type="text" id="locationAnswer" placeholder="Enter the location...">
+                    <button class="check-btn" id="checkBtn">
+                        <i class="fas fa-search"></i> Check
+                    </button>
+                </div>
+                <div class="hint-section">
+                    <button class="hint-btn" id="hintBtn">
+                        <i class="fas fa-lightbulb"></i> Get Hint
+                    </button>
+                    <p class="hint-text" id="hintText" style="display: none;"></p>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3>Progress</h3>
+                <div class="locations-found" id="locationsFound"></div>
+            </div>
+
+            <div class="completion-card" id="completionCard" style="display: none;">
+                <div class="trophy-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2>🎉 Congratulations!</h2>
+                <p>You've completed the Campus Treasure Hunt!</p>
+                <button class="dashboard-btn" onclick="window.location.href='dashboard.html'">
+                    <i class="fas fa-home"></i> Back to Dashboard
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/treasure-hunt.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - CS MANICZ</title>
+    <link rel="stylesheet" href="css/user-profile.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </button>
+        <div class="nav-brand">CS MANICZ</div>
+        <button class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="profile-card">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar-container">
+                    <img id="userAvatar" src="images/default-user.svg" alt="User Avatar" class="profile-avatar">
+                </div>
+                
+                <div class="profile-info">
+                    <div class="info-row">
+                        <label>Name:</label>
+                        <span id="userName">Loading...</span>
+                    </div>
+                    <div class="info-row">
+                        <label>Email:</label>
+                        <span id="userEmail">Loading...</span>
+                    </div>
+                    <p style="font-size: 11px; color: #999; margin-top: 10px; font-style: italic;">
+                        <i class="fas fa-info-circle"></i> Name is set during registration and cannot be changed.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Level Badge -->
+            <div class="level-section">
+                <div class="level-badge-large">
+                    <i class="fas fa-trophy"></i>
+                    <div class="level-text">
+                        <span class="level-label">Level</span>
+                        <span class="level-number" id="userLevel">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <h3>Game Progress</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0/5 Games Completed</span>
+                </div>
+            </div>
+
+            <!-- Next Level Button -->
+            <button class="next-level-btn" id="nextLevelBtn" onclick="window.location.href='dashboard.html#games'">
+                <i class="fas fa-gamepad"></i> Next Level!
+            </button>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-value" id="totalScore">0</div>
+                    <div class="stat-label">Total Score</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <div class="stat-value" id="gamesPlayed">0</div>
+                    <div class="stat-label">Games Played</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-value" id="completedGames">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-gamepad"></i> CS MANICZ</h3>
+                <p>Experience the ultimate freshers gaming platform! Challenge yourself with exciting games, track your progress, and compete with others.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-link"></i> Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="user-profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-trophy"></i> Leaderboard</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-address-card"></i> Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> csmanicz@college.edu</li>
+                    <li><i class="fas fa-phone"></i> +91 1234567890</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Computer Science Department</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 <a href="#">CS MANICZ</a>. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> by Computer Science Students</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/user-profile.js"></script>
+</body>
+</html>

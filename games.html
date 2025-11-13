@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1 - Games</title>
+    <link rel="stylesheet" href="css/games.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <nav class="navbar">
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <div class="nav-brand">Level 1</div>
+        <div class="nav-user">
+            <img id="userAvatar" src="images/default-user.svg" alt="User" class="user-avatar">
+            <span id="userName"></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Choose Your Game</h1>
+        
+        <div class="games-grid">
+            <div class="game-card" data-game="riddle-rush">
+                <div class="game-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Riddle Rush</h3>
+                <p>Solve riddles against the clock!</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-clock"></i> 2 min per riddle</span>
+                    <span><i class="fas fa-star"></i> Logic MCQs</span>
+                </div>
+                <button class="play-btn" onclick="window.location.href='riddle-rush.html'">
+                    Play Now
+                </button>
+            </div>
+
+            <div class="game-card" data-game="who-said-it">
+                <div class="game-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <h3>Who Said It?</h3>
+                <p>Match quotes with famous people</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-quote-right"></i> Famous quotes</span>
+                    <span><i class="fas fa-users"></i> Multiple choice</span>
+                </div>
+                <button class="play-btn" onclick="window.location.href='who-said-it.html'">
+                    Play Now
+                </button>
+            </div>
+
+            <div class="game-card" data-game="truth-dare">
+                <div class="game-icon">
+                    <i class="fas fa-dice"></i>
+                </div>
+                <h3>Truth or Dare</h3>
+                <p>Classic party game with a twist</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-question"></i> Random challenges</span>
+                    <span><i class="fas fa-fire"></i> Spicy edition</span>
+                </div>
+                <button class="play-btn" onclick="window.location.href='truth-dare.html'">
+                    Play Now
+                </button>
+            </div>
+
+            <div class="game-card" data-game="word-scramble">
+                <div class="game-icon">
+                    <i class="fas fa-font"></i>
+                </div>
+                <h3>Word Scramble</h3>
+                <p>Unscramble the words quickly</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-keyboard"></i> Type fast</span>
+                    <span><i class="fas fa-stopwatch"></i> Beat the timer</span>
+                </div>
+                <button class="play-btn" onclick="window.location.href='word-scramble.html'">
+                    Play Now
+                </button>
+            </div>
+
+            <div class="game-card" data-game="treasure-hunt">
+                <div class="game-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>Campus Treasure Hunt</h3>
+                <p>Find hidden treasures on campus</p>
+                <div class="game-stats">
+                    <span><i class="fas fa-compass"></i> Clue-based</span>
+                    <span><i class="fas fa-trophy"></i> Big rewards</span>
+                </div>
+                <button class="play-btn" onclick="window.location.href='treasure-hunt.html'">
+                    Play Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/games.js"></script>
+</body>
+</html>

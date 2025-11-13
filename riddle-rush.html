@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddle Rush - Logic MCQs</title>
+    <link rel="stylesheet" href="css/riddle-rush.css">
+    <link rel="stylesheet" href="css/game-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-background">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <nav class="navbar">
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <div class="nav-brand">Riddle Rush 🧩</div>
+        <div class="score-display">
+            Score: <span id="score">0</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="start-card game-entrance-animation">
+                <div class="game-logo brain-pulse-animation">
+                    <i class="fas fa-brain"></i>
+                    <div class="glow-circle"></div>
+                </div>
+                <h1 class="title-slide-in">Riddle Rush</h1>
+                <p class="game-description">
+                    Test your logic and problem-solving skills! Answer riddles as fast as you can.
+                    Each riddle has a 60-second timer. Choose wisely!
+                </p>
+                <div class="game-rules">
+                    <h3>Rules:</h3>
+                    <ul>
+                        <li>🧠 10 challenging riddles await you</li>
+                        <li>⏱️ 60 seconds per riddle</li>
+                        <li>✅ Correct answer: +10 points</li>
+                        <li>❌ Wrong answer: -2 points</li>
+                        <li>⏰ Bonus points for faster answers!</li>
+                    </ul>
+                </div>
+                <button class="start-btn" id="startGame">
+                    <i class="fas fa-play"></i> Start Game
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="timer-container">
+                    <div class="timer-circle">
+                        <svg>
+                            <circle cx="50" cy="50" r="45"></circle>
+                            <circle cx="50" cy="50" r="45" id="timerCircle"></circle>
+                        </svg>
+                        <div class="timer-text" id="timer">60</div>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <h3>Question <span id="currentQuestion">1</span> / <span id="totalQuestions">10</span></h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card" id="questionCard">
+                <h2 class="question-text" id="questionText"></h2>
+                <div class="options-container" id="optionsContainer"></div>
+            </div>
+
+            <div class="game-actions">
+                <button class="skip-btn" id="skipBtn">
+                    <i class="fas fa-forward"></i> Skip
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen">
+            <div class="result-card">
+                <div class="result-icon" id="resultIcon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h1 id="resultTitle">Game Over!</h1>
+                <div class="result-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <div class="stat-info">
+                            <span class="stat-label">Final Score</span>
+                            <span class="stat-value" id="finalScore">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="stat-info">
+                            <span class="stat-label">Correct Answers</span>
+                            <span class="stat-value" id="correctAnswers">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-times-circle"></i>
+                        <div class="stat-info">
+                            <span class="stat-label">Wrong Answers</span>
+                            <span class="stat-value" id="wrongAnswers">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="stat-info">
+                            <span class="stat-label">Time Bonus</span>
+                            <span class="stat-value" id="timeBonus">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <button class="back-home-btn" onclick="window.location.href='dashboard.html'" style="width: 100%;">
+                        <i class="fas fa-home"></i> Back to Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js?v=2"></script>
+    <script type="module" src="js/riddle-rush.js?v=2"></script>
+</body>
+</html>

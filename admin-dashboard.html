@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - CS MANICZ</title>
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <i class="fas fa-crown"></i> ADMIN PANEL
+        </div>
+        <div class="nav-right">
+            <div class="admin-info">
+                <i class="fas fa-user-shield"></i>
+                <span id="adminEmail">Admin</span>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+            <p>Manage events, users, and view top players</p>
+        </div>
+
+        <!-- Admin Actions -->
+        <div class="admin-actions">
+            <div class="action-card" id="updateEventCard">
+                <div class="card-icon">
+                    <i class="fas fa-calendar-plus"></i>
+                </div>
+                <h3>Update Event</h3>
+                <p>Create or modify events</p>
+                <button class="action-btn" onclick="showUpdateEvent()">Manage</button>
+            </div>
+
+            <div class="action-card" id="usersCard">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Users</h3>
+                <p>View and manage all users</p>
+                <button class="action-btn" onclick="showUsers()">View Users</button>
+            </div>
+
+            <div class="action-card" id="topPlayersCard">
+                <div class="card-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Top Players</h3>
+                <p>View leaderboard rankings</p>
+                <button class="action-btn" onclick="showTopPlayers()">View Leaderboard</button>
+            </div>
+        </div>
+
+        <!-- Update Event Section -->
+        <div id="updateEventSection" class="admin-section" style="display: none;">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-plus"></i> Update Event</h2>
+                <button class="close-btn" onclick="closeSection('updateEventSection')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="event-form-container">
+                <form id="eventForm">
+                    <div class="form-group">
+                        <label for="eventName">Event Name</label>
+                        <input type="text" id="eventName" placeholder="Enter event name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventDate">Date</label>
+                            <input type="date" id="eventDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eventTime">Time</label>
+                            <input type="time" id="eventTime" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" rows="4" placeholder="Enter event description"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-save"></i> Save Event
+                    </button>
+                </form>
+                
+                <div class="events-list">
+                    <h3>Current Events</h3>
+                    <div id="currentEvents"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Section -->
+        <div id="usersSection" class="admin-section" style="display: none;">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> All Users</h2>
+                <button class="close-btn" onclick="closeSection('usersSection')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="userSearch" placeholder="Search users by name or email...">
+            </div>
+            
+            <div class="users-table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Level</th>
+                            <th>Total Score</th>
+                            <th>Games Played</th>
+                            <th>Completed Games</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr>
+                            <td colspan="7" class="loading">Loading users...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Top Players Section -->
+        <div id="topPlayersSection" class="admin-section" style="display: none;">
+            <div class="section-header">
+                <h2><i class="fas fa-trophy"></i> Top Players Leaderboard</h2>
+                <button class="close-btn" onclick="closeSection('topPlayersSection')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="leaderboard-container">
+                <div class="leaderboard-filters">
+                    <button class="filter-btn active" onclick="filterLeaderboard('score')">By Score</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('level')">By Level</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('games')">By Games</button>
+                </div>
+                
+                <div id="leaderboardList" class="leaderboard-list">
+                    <div class="loading">Loading leaderboard...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3><i class="fas fa-exclamation-triangle"></i> Confirm Delete</h3>
+            <p>Are you sure you want to delete this user? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
+                <button class="delete-btn" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin-dashboard.js"></script>
+</body>
+</html>

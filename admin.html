@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <button class="back-btn" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <div class="nav-brand">Admin Panel</div>
+        <div class="nav-user">
+            <img id="userAvatar" src="images/default-user.svg" alt="User" class="user-avatar">
+            <span id="userName"></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <p class="subtitle">Manage content and view statistics</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <div class="stat-value" id="totalUsers">0</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-gamepad"></i>
+                <div class="stat-value" id="totalGames">5</div>
+                <div class="stat-label">Total Games</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chart-line"></i>
+                <div class="stat-value" id="totalPlays">0</div>
+                <div class="stat-label">Games Played</div>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <h2>Manage Content</h2>
+            <p>This is a placeholder admin panel. You can extend this to add features like:</p>
+            <ul>
+                <li>Add/Edit/Delete riddles and questions</li>
+                <li>Manage user permissions</li>
+                <li>View detailed analytics</li>
+                <li>Export leaderboard data</li>
+                <li>Send announcements</li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>
