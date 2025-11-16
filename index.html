@@ -3,143 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS MANICZ - Freshers Party</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>CS MANICZ - Freshers Day 2024</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    <svg width="0" height="0" style="position: absolute;">
-        <defs>
-            <clipPath id="torn-edge" clipPathUnits="objectBoundingBox">
-                <path d="M 0,0 L 0,1 
-                         C 0.88,0.98 0.92,0.95 0.89,0.92
-                         C 0.86,0.89 0.93,0.86 0.90,0.83
-                         C 0.87,0.80 0.94,0.77 0.91,0.74
-                         C 0.88,0.71 0.95,0.68 0.92,0.65
-                         C 0.89,0.62 0.96,0.59 0.93,0.56
-                         C 0.90,0.53 0.97,0.50 0.94,0.47
-                         C 0.91,0.44 0.98,0.41 0.95,0.38
-                         C 0.92,0.35 0.99,0.32 0.96,0.29
-                         C 0.93,0.26 1.00,0.23 0.97,0.20
-                         C 0.94,0.17 0.98,0.14 0.95,0.11
-                         C 0.92,0.08 0.96,0.05 0.93,0.02
-                         L 0.90,0 Z" />
-            </clipPath>
-        </defs>
-    </svg>
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
 
-    <div class="particles-background">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">CS MANICZ</div>
+        <nav class="nav-buttons">
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('events')">Events</button>
+            <button onclick="showSection('users')">Users</button>
+            <button onclick="showSection('leaderboard')">Leaderboard</button>
+        </nav>
+    </header>
 
+    <!-- Main Container -->
     <div class="container">
-        <div class="auth-card" id="authCard">
-            <div class="left-section">
-                <div class="logo-container">
-                    <div class="logo-diamond">
-                        <h1 class="logo-text">CS MANICZ</h1>
+        
+        <!-- Home/Landing Page -->
+<section id="home-section" class="section active">
+    <div class="hero-content">
+        <div class="logo-container">
+            <img src="cs_logo.jpg" alt="CS MANICZ Logo" class="hero-logo">
+        </div>
+        <h1 class="hero-title">Let's Get the Party Started!</h1>
+        <p class="hero-subtitle">Join us for games, challenges, and surprises</p>
+        <button class="cta-button" onclick="showSection('login')">Register Here</button>
+    </div>
+</section>
+        <!-- Login Section -->
+        <section id="login-section" class="section">
+            <div class="form-container animate-in">
+                <h2>Login</h2>
+                <div class="google-auth">
+                    <div id="g_id_onload"
+                         data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                         data-callback="handleCredentialResponse">
+                    </div>
+                    <div class="g_id_signin" 
+                         data-type="standard"
+                         data-size="large"
+                         data-theme="outline"
+                         data-text="sign_in_with"
+                         data-shape="rectangular"
+                         data-logo_alignment="left">
                     </div>
                 </div>
-                
-                <h2 class="tagline">Let's Get the Party Started!</h2>
-                <p class="subtitle">Join us for games, challenges, and surprises</p>
+                <div class="google-signin-button" onclick="handleGoogleSignIn()">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    CONTINUE WITH GOOGLE
+                </div>
+                <p class="link-text">New user? <a href="#" onclick="showSection('register'); return false;">Register</a></p>
+            </div>
+        </section>
+
+        <!-- Register Section -->
+        <section id="register-section" class="section">
+            <div class="form-container animate-in">
+                <h2>Register Here</h2>
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="submit-button">Register</button>
+                </form>
+                <div class="divider">OR</div>
+                <div class="google-signin-button" onclick="handleGoogleSignIn()">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    REGISTER WITH GOOGLE
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard -->
+        <section id="admin-section" class="section">
+            <div class="dashboard-container animate-in">
+                <h2>Admin Dashboard</h2>
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <h3>Total Users</h3>
+                        <p class="stat-number" id="totalUsers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Players</h3>
+                        <p class="stat-number" id="activePlayers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Games Completed</h3>
+                        <p class="stat-number" id="gamesCompleted">0</p>
+                    </div>
+                </div>
+                <button class="action-button" onclick="showSection('game')">Start Game</button>
+            </div>
+        </section>
+
+        <!-- User Profile -->
+        <section id="profile-section" class="section">
+            <div class="profile-container animate-in">
+                <div class="profile-avatar">
+                    <img id="userAvatar" src="https://via.placeholder.com/150" alt="User Avatar">
+                </div>
+                <h2 id="userName">User Name</h2>
+                <p id="userEmail">user@example.com</p>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span class="stat-value" id="userScore">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Rank</span>
+                        <span class="stat-value" id="userRank">#0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span class="stat-value" id="userLevel">1</span>
+                    </div>
+                </div>
+                <button class="action-button" onclick="showSection('game')">Play Game</button>
+            </div>
+        </section>
+
+        <!-- Game Section -->
+        <section id="game-section" class="section">
+            <div class="game-container animate-in">
+                <h1 class="level-title">Level 1</h1>
+                <div class="game-board">
+                    <div class="game-placeholder">
+                        <h2>Game</h2>
+                        <p>Select a level to play</p>
+                        <div class="level-buttons">
+                            <button class="level-btn unlocked active" onclick="selectLevel(1)" data-level="1">
+                                <span class="level-icon">🔓</span>
+                                <span>Level 1</span>
+                            </button>
+                            <button class="level-btn locked" onclick="selectLevel(2)" data-level="2" disabled>
+                                <span class="level-icon">🔒</span>
+                                <span>Level 2</span>
+                            </button>
+                            <button class="level-btn locked" onclick="selectLevel(3)" data-level="3" disabled>
+                                <span class="level-icon">🔒</span>
+                                <span>Level 3</span>
+                            </button>
+                            <button class="level-btn locked" onclick="selectLevel(4)" data-level="4" disabled>
+                                <span class="level-icon">🔒</span>
+                                <span>Level 4</span>
+                            </button>
+                            <button class="level-btn locked" onclick="selectLevel(5)" data-level="5" disabled>
+                                <span class="level-icon">🔒</span>
+                                <span>Level 5</span>
+                            </button>
+                        </div>
+                        <button class="play-btn" onclick="playGame()">Play the Game!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+<section id="events-section" class="section">
+    <div class="events-container animate-in">
+        <h2>📅 Upcoming Events</h2>
+        <!-- Countdown Timer -->
+<div class="countdown-section">
+    <h3>Main Event Countdown</h3>
+    <p class="event-info">21st November 2025 | 10:00 AM | Amarashri Hall, Sullia</p>
+    <div class="countdown-timer" id="countdownTimer">
+        <div class="time-unit">
+            <svg>
+                <defs>
+                    <linearGradient id="gradient-days" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
+                <circle class="circle-progress" cx="70" cy="70" r="65" id="days-circle" style="stroke: url(#gradient-days)"></circle>
+            </svg>
+            <span class="time-value" id="days">00</span>
+            <span class="time-label">DAYS</span>
+        </div>
+        <div class="time-unit">
+            <svg>
+                <defs>
+                    <linearGradient id="gradient-hours" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
+                <circle class="circle-progress" cx="70" cy="70" r="65" id="hours-circle" style="stroke: url(#gradient-hours)"></circle>
+            </svg>
+            <span class="time-value" id="hours">00</span>
+            <span class="time-label">HOURS</span>
+        </div>
+        <div class="time-unit">
+            <svg>
+                <defs>
+                    <linearGradient id="gradient-minutes" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
+                <circle class="circle-progress" cx="70" cy="70" r="65" id="minutes-circle" style="stroke: url(#gradient-minutes)"></circle>
+            </svg>
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-label">MINUTES</span>
+        </div>
+        <div class="time-unit">
+            <svg>
+                <defs>
+                    <linearGradient id="gradient-seconds" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
+                <circle class="circle-progress" cx="70" cy="70" r="65" id="seconds-circle" style="stroke: url(#gradient-seconds)"></circle>
+            </svg>
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">SECONDS</span>
+        </div>
+    </div>
+</div>
+<div class="events-list" id="eventsList">
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">21</span>
+                    <span class="month">NOV</span>
+                </div>
+                <div class="event-details">
+                    <h3>Welcome Ceremony</h3>
+                    <p>Join us for the grand opening ceremony of Freshers Day 2025</p>
+                    <div class="event-meta">
+                        <span>⏰ 10:00 AM</span>
+                        <span>📍 Amarashri Hall, Sullia</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="right-section">
-                <div class="auth-container">
-                    <div id="registerSection">
-                        <h3 class="section-title">Create your account</h3>
-                        
-                        <form id="emailRegisterForm">
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="registerName">Full Name <span style="color: red;">*</span></label>
-                                    <input type="text" id="registerName" placeholder="Enter your full name" required minlength="3" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <label for="registerEmail">E-mail Address</label>
-                                <input type="email" id="registerEmail" placeholder="Enter your email" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="registerPassword">Password</label>
-                                <input type="password" id="registerPassword" placeholder="Enter your password" required>
-                                <small class="password-requirements">
-                                    Must be 8+ characters with at least 3 of: uppercase, lowercase, number, symbol
-                                </small>
-                            </div>
-                            <button type="submit" class="submit-btn">Sign Up</button>
-                        </form>
-
-                        <div class="divider">
-                            <span>OR</span>
-                        </div>
-
-                        <button id="googleRegisterBtn" class="google-btn">
-                            <svg class="google-icon" viewBox="0 0 24 24" width="20" height="20">
-                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                            </svg>
-                            Continue with Google
-                        </button>
-
-                        <p class="toggle-text">
-                            Already have an account? 
-                            <a href="#" id="showLogin">Sign In</a>
-                        </p>
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">21</span>
+                    <span class="month">NOV</span>
+                </div>
+                <div class="event-details">
+                    <h3>Gaming Championship</h3>
+                    <p>Compete in exciting games and challenges to win amazing prizes</p>
+                    <div class="event-meta">
+                        <span>⏰ 12:00 PM</span>
+                        <span>📍Amarashri Hall, Sullia </span>
                     </div>
+                </div>
+            </div>
 
-                    <div id="loginSection" style="display: none;">
-                        <h3 class="section-title">Welcome Back</h3>
-                        
-                        <form id="emailLoginForm">
-                            <div class="input-group">
-                                <label for="loginEmail">E-mail Address</label>
-                                <input type="email" id="loginEmail" placeholder="Enter your email" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="loginPassword">Password</label>
-                                <input type="password" id="loginPassword" placeholder="Enter your password" required>
-                            </div>
-                            <button type="submit" class="submit-btn">Sign In</button>
-                        </form>
-
-                        <div class="divider">
-                            <span>OR</span>
-                        </div>
-
-                        <button id="googleLoginBtn" class="google-btn">
-                            <svg class="google-icon" viewBox="0 0 24 24" width="20" height="20">
-                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                            </svg>
-                            Continue with Google
-                        </button>
-
-                        <p class="toggle-text">
-                            Don't have an account? 
-                            <a href="#" id="showRegister">Sign Up</a>
-                        </p>
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">21</span>
+                    <span class="month">NOV</span>
+                </div>
+                <div class="event-details">
+                    <h3>Cultural events</h3>
+                    <p>Experience amazing performances, music, and entertainment</p>
+                    <div class="event-meta">
+                        <span>⏰ 2:00PM</span>
+                        <span>📍 Amarashri Hall, Sullia</span>
                     </div>
+                </div>
+            </div>
 
-                    <div id="loadingScreen" style="display: none;">
-                        <div class="loading-spinner"></div>
-                        <p>Getting things ready...</p>
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="day">21</span>
+                    <span class="month">NOV</span>
+                </div>
+                <div class="event-details">
+                    <h3>Prize Distribution</h3>
+                    <p>Award ceremony for winners and participants</p>
+                    <div class="event-meta">
+                        <span>⏰ 6:00 PM</span>
+                        <span>📍 Amarashri Hall, Sullia</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <script type="module" src="js/firebase-config.js"></script>
-    <script type="module" src="js/auth.js"></script>
+        
+
+        
+        <!-- Users Section -->
+        <section id="users-section" class="section">
+            <div class="users-container animate-in">
+                <h2>Registered Users</h2>
+                <div class="users-grid" id="usersGrid">
+                    <p style="text-align: center; color: #fff; grid-column: 1/-1;">No users registered yet.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Section -->
+        <section id="leaderboard-section" class="section">
+            <div class="leaderboard-container animate-in">
+                <h2>🏆 Leaderboard</h2>
+                <div class="leaderboard-list" id="leaderboardList">
+                    <p style="text-align: center; color: #666;">No players on the leaderboard yet.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
